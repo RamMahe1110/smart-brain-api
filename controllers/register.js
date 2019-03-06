@@ -26,7 +26,9 @@ const handleRegister = (req, res, db, bcrypt) => {
       })
       .then(trx.commit)
       .catch(trx.rollback);
-  }).catch(err => res.status(400).json("User already exist!"));
+  }).catch(err =>
+    res.status(400).json("User already exist! , Try Signing In :(")
+  );
 };
 
 module.exports = {
