@@ -16,15 +16,13 @@ const db = knex({
   }
 });
 
-console.log(process.env);
-
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.json("App is working!");
+  res.json(process.env);
 });
 
 app.get("/profile/:id", (req, res) => {
