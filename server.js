@@ -16,6 +16,8 @@ const db = knex({
   }
 });
 
+console.log(process.env);
+
 const app = express();
 
 app.use(bodyParser.json());
