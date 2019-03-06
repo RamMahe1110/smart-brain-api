@@ -23,6 +23,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.json("App is working!");
+});
+
 app.get("/profile/:id", (req, res) => {
   Profile.handleProfile(req, res, db);
 });
@@ -43,8 +47,6 @@ app.post("/imageurl", (req, res) => {
   Image.handleApiCall(req, res);
 });
 
-app.listen(3100, () => {
-  console.log("app is running on port 3100");
+app.listen(process.env.PORT || 3100, () => {
+  console.log(`app is running on port ${process.env.PORT}`);
 });
-
-/*app.get("/", (req, res) => {});*/
